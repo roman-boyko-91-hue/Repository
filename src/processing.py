@@ -1,3 +1,6 @@
+from typing import List, Dict, Any
+from datetime import datetime
+
 list_dict = [
     {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
     {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
@@ -6,18 +9,21 @@ list_dict = [
 ]
 
 
-def filter_by_state(list_dict: list[dict], state: str = "EXECUTED") -> list:
+def filter_by_state(list_dict: List[Dict[str, Any]], state: str = "EXECUTED") -> List[Dict[str, Any]]:
     """Функция возвращает новый список словарей, у которых
        ключ 'state' соответствует указанному значению"""
     return [item for item in list_dict if item.get('state') == state]
 
 
-print(filter_by_state(list_dict, "EXECUTED"))
-
-
-def sort_by_date(list_dict: list[dict], reverse: bool = True) -> list:
+def sort_by_date(list_dict: List[Dict[str, Any]], reverse: bool = True) -> List[Dict[str, Any]]:
     """Функция должна возвращать новый список, отсортированный по дате"""
-    return sorted(list_dict, key=lambda x: x.get('date'), reverse=reverse)
-
-
-print(sort_by_date(list_dict, True))
+    # Более безопасная версия с обработкой возможных ошибок
+    try:
+        return sorted(
+            list_dict,
+            key=lambda x: datetime.fromisoformat(x.get('date', '')) if x.get('date') else datetime.min,
+            reverse=reverse
+        )
+    except (ValueError, TypeError):
+        # Если дата в неправильном формате, сортируем как строки
+        return sorted(list_dict, key=lambda x: x.get('date', ''), reverse=reverse)
