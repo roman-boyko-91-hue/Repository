@@ -1,24 +1,33 @@
-# Проект Homework_10_1
+# Проект Homework_10_2
 
 ## Описание:
 
-Проект Homework_10_1 - это проект домашнего задания
+Проект Homework_10_2 - это проект домашнего задания
 в рамках 2 курса Разработка на Python
 
 ## Установка:
 
 1. Клонируйте репозиторий:
 ```
-git clone https://github.com/roman-boyko-91-hue/Repository/tree/feature/homework_10_1
+git clone https://github.com/roman-boyko-91-hue/Repository/tree/feature/homework_10_2
 ```
 2. Установите зависимости:
 ```
 poetry install
 ```
+
+3. Установите фреймворк pytest через Poetry
+```
+poetry add --group dev pytest
+```
 ## Использование
 
-1. Откройте файл `processing.py`.
-2. Запустите работу функций.
+1. Откройте файл `test_processing.py`.
+2. Запустите тестирование функции через `pytest`.
+3. Откройте файл `test_masks.py`.
+4. Запустите тестирование функции через `pytest`.
+5. Откройте файл `test_widget.py`.
+6. Запустите тестирование функции через `pytest`.
 
 ## Документация:
 
