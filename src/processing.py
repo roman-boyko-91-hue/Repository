@@ -1,6 +1,7 @@
 from typing import List, Dict, Any
 from datetime import datetime
 
+
 list_dict = [
     {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
     {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
@@ -9,7 +10,7 @@ list_dict = [
 ]
 
 
-def filter_by_state(list_dict: List[Dict[str, Any]], state: str = "EXECUTED") -> List[Dict[str, Any]]:
+def filter_by_state(list_dict: list[dict[str, any]], state: str = "EXECUTED") -> list[dict[str, any]]:
     """Функция возвращает новый список словарей, у которых
        ключ 'state' соответствует указанному значению"""
     return [item for item in list_dict if item.get('state') == state]
