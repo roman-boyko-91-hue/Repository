@@ -9,8 +9,6 @@ def get_mask_card_number(card_number: str) -> str:
     return f"{first_number[:4]} {first_number[4:6]}{avg_number} {last_number}"
 
 
-
-
 def get_mask_account(account_number: str) -> str:
     """Функция маскировки номера банковского счета"""
     account_number = account_number.replace(" ", "")
@@ -19,6 +17,3 @@ def get_mask_account(account_number: str) -> str:
     first_number = "**"
     last_number = account_number[-4:]
     return f"{first_number}{last_number}"
-
-
-
